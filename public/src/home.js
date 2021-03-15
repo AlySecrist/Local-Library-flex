@@ -1,5 +1,7 @@
 'use strict';
 
+const { partitionBooksByBorrowedStatus } = require('./books');
+
 // Note: Please do not change the name of the functions. The tests use those names to validate your code.
 
 //It returns a number that represents the number of book objects inside of the array.
@@ -18,7 +20,8 @@ function getTotalAccountsCount(accounts) {
 
 //It returns a number that represents the number of books that are currently checked out of the library. This number can be found by looking at the first transaction in the borrows key of each book. If the transaction says the book has not been returned (i.e. returned: false), the book has been borrowed.
 function getBooksBorrowedCount(books) {
-
+  //function already built in books.js to do most of this work, use as helper.
+  return partitionBooksByBorrowedStatus(books)[0].length;
 }
 
 
