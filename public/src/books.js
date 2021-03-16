@@ -34,12 +34,15 @@ function partitionBooksByBorrowedStatus(books) {
 
 //It should return an array of all the transactions from the book's borrows key. However, each transaction should include the related account information and the returned key.
 function getBorrowersForBook(book, accounts) {
-/**
- 1 book
- list of accounts
- map through book's borrow key
- limit 10
- */
+  /**
+  1 book
+  list of accounts
+  .map() through book's borrow key
+  limit 10
+  */
+  //declare result and define as book's borrows
+  let result = book.borrows;
+
 }
 
 
