@@ -69,6 +69,25 @@ function getBooksPossessedByAccount(account, books, authors) {
   return array
   {account} has checked out [{book (author){}}, {book (author){}}]
   */
+  let results = [];
+  //loop over books
+  for (let i = 0; i < books.length; i++) {
+    let book = books[i];
+    //loop over book's borrows
+    for (let j = 0; j < book.borrows.length; j++) {
+      let transaction = book.borrows[j];
+      //compare borrow id to account id and borrow's returned state is false
+      if (transaction.id === account.id && transaction.returned === false) {
+        for (let k = 0; k < authors.length; k++) {
+          let author = authors[k];
+          if (book.authorId === author.id) book.author = author;
+        }
+        results.push(book);
+      }
+    }
+  }
+  console.log(results);
+  return results;
 }
 
 

@@ -41,8 +41,22 @@ function getBorrowersForBook(book, accounts) {
   limit 10
   */
   //declare result and define as book's borrows
-  let result = book.borrows;
-
+  let borrows = book.borrows;
+  let result = [];
+  for (let i = 0; i < borrows.length; i++) {
+    let transaction = borrows[i];
+    for (let j = 0; j < accounts.length; j++) {
+      let member = accounts[j];
+      if (transaction.id === member.id) {
+        const { id, returned } = transaction;
+        const { name, picture, age, company, email, registered } = member;
+        transaction = { returned, id, name, picture, age, company, email, registered };
+        result.push(transaction);
+      }
+    }
+  }
+  if (result.length > 10) result.length = 10;
+  return result;
 }
 
 
