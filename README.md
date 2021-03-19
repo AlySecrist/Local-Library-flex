@@ -6,14 +6,14 @@ All tests are passing in Qualified.
 
 The project employs at least one helper function, which helps support the tested functions.
 
-Methods -->
-Required 1+ -->
+<!-- Methods -->
+<!-- Required 1+ -->
 <!-- find() -->
 <!-- filter() -->
-map() -->
+<!-- map() -->
 <!-- reduce() -->
 Stretch -->
-<!-- some() -->
+some() -->
 <!-- sort() -->
 every() -->
 
