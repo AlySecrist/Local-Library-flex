@@ -18,7 +18,7 @@ function findBookById(books, id) {
 
 //It returns an array with two arrays inside of it. All of the inputted books are present in either the first or second array.
 
-//The first array contains books that have been loaned out, and are not yet returned while the second array contains books that have been returned. You can check for the return status by looking at the first transaction in the borrows array.
+//The first array contains books that have been loaned out, and are not yet returned while the second array contains books that have been returned.
 function partitionBooksByBorrowedStatus(books) {
   let results = [[], []];
 
@@ -34,13 +34,6 @@ function partitionBooksByBorrowedStatus(books) {
 
 //It should return an array of all the transactions from the book's borrows key. However, each transaction should include the related account information and the returned key.
 function getBorrowersForBook(book, accounts) {
-  /**
-  1 book
-  list of accounts
-  .map() through book's borrow key
-  limit 10
-  */
-  //declare result and define as book's borrows
   let borrows = book.borrows;
   let result = [];
   for (let i = 0; i < borrows.length; i++) {

@@ -1,8 +1,20 @@
+'use strict';
+
+// const {
+//   findAuthorById,
+//   findBookById,
+//   partitionBooksByBorrowedStatus,
+//   getBorrowersForBook,
+// } = require('../src/books');
+// const { books } = require('../data/books');
+// const { authors } = require('../data/authors');
+// const { accounts } = require('../data/accounts');
+
 // Templates
 function returnedBadgeTemplate(returned) {
   return `
-    <span class="badge badge-${returned ? "light" : "dark"}">
-      ${returned ? "Returned" : "Loaned Out"}
+    <span class="badge badge-${returned ? 'light' : 'dark'}">
+      ${returned ? 'Returned' : 'Loaned Out'}
     </span>
   `;
 }
@@ -39,7 +51,7 @@ function bookBorrowersTemplate(borrowers) {
       </li>
     `;
     })
-    .join("");
+    .join('');
 
   return `
     <div class="card mt-4">
@@ -56,22 +68,22 @@ function bookBorrowersTemplate(borrowers) {
 // Render functions
 function renderBooks() {
   const [borrowed, returned] = partitionBooksByBorrowedStatus(books);
-  const list = document.querySelector("#books-list");
+  const list = document.querySelector('#books-list');
   const returnedLis = returned.map((book) => bookLinkTemplate(book, true));
   const borrowedLis = borrowed.map((book) => bookLinkTemplate(book));
-  const lis = returnedLis.concat(borrowedLis).join("");
+  const lis = returnedLis.concat(borrowedLis).join('');
 
   list.innerHTML = lis;
 }
 
 function renderBookSelection() {
-  const list = document.querySelector("#books-list");
+  const list = document.querySelector('#books-list');
   const lis = Array.from(list.children);
   lis.forEach((li) => {
-    const link = li.querySelector("a");
-    const selection = document.querySelector("#book-selection");
-    link.addEventListener("click", () => {
-      const id = link.getAttribute("data-id");
+    const link = li.querySelector('a');
+    const selection = document.querySelector('#book-selection');
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('data-id');
       const book = findBookById(books, id);
       const author = findAuthorById(authors, book.authorId);
       const borrowers = getBorrowersForBook(book, accounts);
@@ -90,4 +102,4 @@ function render() {
   renderBookSelection();
 }
 
-document.addEventListener("DOMContentLoaded", render);
+document.addEventListener('DOMContentLoaded', render);

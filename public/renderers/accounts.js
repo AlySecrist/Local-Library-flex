@@ -1,3 +1,16 @@
+'use strict';
+
+// const {
+//   findAccountById,
+//   sortAccountsByLastName,
+//   getTotalNumberOfBorrows,
+//   getBooksPossessedByAccount,
+// } = require('../src/accounts');
+
+// const { books } = require('../data/books');
+// const { authors } = require('../data/authors');
+// const { accounts } = require('../data/accounts');
+
 // Templates
 function accountLinkTemplate(account) {
   return `
@@ -46,7 +59,7 @@ function getBooksPossessedByAccountTemplate(books) {
         </li>
       `;
     })
-    .join("");
+    .join('');
 
   return `
     <div class="card mt-4">
@@ -54,10 +67,8 @@ function getBooksPossessedByAccountTemplate(books) {
         Books in Possession
       </div>
       <ul class="list-group list-group-flush">
-        ${
-          lis ||
-          `<li class="list-group-item">No books currently taken out...</li>`
-        }
+        ${lis ||
+          '<li class="list-group-item">No books currently taken out...</li>'}
       </ul>
     </div>
   `;
@@ -65,21 +76,21 @@ function getBooksPossessedByAccountTemplate(books) {
 
 // Render functions
 function renderAccounts() {
-  const list = document.querySelector("#accounts-list");
+  const list = document.querySelector('#accounts-list');
   const result = sortAccountsByLastName(accounts);
-  const lis = result.map(accountLinkTemplate).join("");
+  const lis = result.map(accountLinkTemplate).join('');
 
   list.innerHTML = lis;
 }
 
 function renderAccountSelection() {
-  const list = document.querySelector("#accounts-list");
+  const list = document.querySelector('#accounts-list');
   const lis = Array.from(list.children);
   lis.forEach((li) => {
-    const link = li.querySelector("a");
-    const selection = document.querySelector("#account-selection");
-    link.addEventListener("click", () => {
-      const id = link.getAttribute("data-id");
+    const link = li.querySelector('a');
+    const selection = document.querySelector('#account-selection');
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('data-id');
       const account = findAccountById(accounts, id);
       const borrowCount = getTotalNumberOfBorrows(account, books);
       selection.innerHTML = accountDetailsTemplate(account, borrowCount);
@@ -95,4 +106,4 @@ function render() {
   renderAccountSelection();
 }
 
-document.addEventListener("DOMContentLoaded", render);
+document.addEventListener('DOMContentLoaded', render);
