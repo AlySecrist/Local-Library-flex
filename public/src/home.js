@@ -1,24 +1,17 @@
 'use strict';
 
-// Note: Please do not change the name of the functions. The tests use those names to validate your code.
-
 //It returns the number of book objects inside of the array.
 function getTotalBooksCount(books) {
   return books.length;
 }
-
-
 
 //It returns the number of account objects inside of the array.
 function getTotalAccountsCount(accounts) {
   return accounts.length;
 }
 
-
-
 //It returns the number of books that are currently checked out of the library.
 function getBooksBorrowedCount(books) {
-  //use filter()
   let result = 0;
   for (let i = 0; i < books.length; i++) {
     let returned = books[i].borrows[0].returned;
@@ -27,17 +20,21 @@ function getBooksBorrowedCount(books) {
   return result;
 }
 
-
-
-//It returns an array containing five objects or fewer that represents the most common occurring genres, ordered from most common to least.
-function getMostCommonGenres(books) {
-  const results = [];
+/***************** getMostCommonGenres HELPER *****************/
+function getUniqueGenres(books) {
   const genres = [];
 
   for (let i = 0; i < books.length; i++) {
     let genre = books[i].genre;
     if (!genres.includes(genre)) genres.push(genre);
   }
+  return genres;
+}
+
+//It returns an array containing five objects or fewer that represents the most common occurring genres, ordered from most common to least.
+function getMostCommonGenres(books) {
+  const results = [];
+  const genres = getUniqueGenres(books);
 
   for (let i = 0; i < genres.length; i++) {
     let genre = genres[i];
@@ -55,8 +52,6 @@ function getMostCommonGenres(books) {
   return results;
 }
 
-
-
 //It returns an array containing five objects or fewer that represents the most popular books in the library.
 function getMostPopularBooks(books) {
   const results = [];
@@ -72,18 +67,10 @@ function getMostPopularBooks(books) {
   return results;
 }
 
-
-
-/*.
-It returns an array containing five objects or fewer that represents the most popular authors whose books have been checked out the most.
-
+/*It returns an array containing five objects or fewer that represents the most popular authors whose books have been checked out the most.
 Each object in the returned array has two keys:
-
-The name key which represents the first and last name of the author.
-The count key which represents the number of times the author's books have been borrowed.
-If more than five authors are present, only the top five should be returned.
-*/
-
+name key represents first and last name of author.
+count key represents number of times author's books have been borrowed.*/
 function getMostPopularAuthors(books, authors) {
   const results = [];
 
@@ -101,7 +88,6 @@ function getMostPopularAuthors(books, authors) {
   }
 
   results.sort((authA, authB) => authA.count < authB.count ? 1 : -1);
-
   if (results.length > 5) results.length = 5;
 
   return results;

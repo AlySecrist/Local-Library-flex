@@ -4,7 +4,7 @@ All tests are passing in Qualified.
 
 <!-- The project makes at least one use of an arrow function. -->
 
-The project employs at least one helper function, which helps support the tested functions.
+<!-- The project employs at least one helper function, which helps support the tested functions. -->
 
 <!-- Methods -->
 <!-- Required 1+ -->
