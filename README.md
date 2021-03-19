@@ -4,13 +4,23 @@ All tests are passing in Qualified.
 
 <!-- The project makes at least one use of an arrow function. -->
 
-The project makes at least one use of each of the following native array methods: <!-- find() -->, filter(), map(), and 
-<!-- reduce(). -->
+The project employs at least one helper function, which helps support the tested functions.
 
-====stretch- include all above plus: <!-- some(), sort() -->, every()====
+Methods -->
+Required 1+ -->
+<!-- find() -->
+<!-- filter() -->
+map() -->
+<!-- reduce() -->
+Stretch -->
+<!-- some() -->
+<!-- sort() -->
+every() -->
 
-<!-- The project employs at least one helper function, which helps support the tested functions. -->
-
-<!--The project uses at least  two of the following JavaScript features: the ternary operator -->, the spread operator, 
-<!--object shorthand, array or object destructuring, and for/in loops. -->
-
+<!-- Operators -->
+<!-- Required 2+ -->
+<!-- ternary -->
+spread -->
+<!-- object shorthand -->
+<!-- array/object destructuring -->
+<!-- for/in loop -->
